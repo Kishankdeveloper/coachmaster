@@ -3,7 +3,7 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   Routes._();
-  static const LOGIN_FROM_CDMM = _Paths.LOGIN_FROM_CDMM;
+  static const RSMS_COACH_MASTER = _Paths.RSMS_COACH_MASTER;
   // static const userFeedback = _Paths.userFeedback;
   static const coachMaster = _Paths.coachMaster;
   static const coachDetails = _Paths.coachDetails;
@@ -11,7 +11,7 @@ abstract class Routes {
 
 abstract class _Paths {
   _Paths._();
-  static const LOGIN_FROM_CDMM = '/login-from-cdmm';
+  static const RSMS_COACH_MASTER = '/rsms-coachmaster';
   // static const checkUser = '/check_user';
   static const coachMaster = '/coachMaster';
 

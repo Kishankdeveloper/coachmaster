@@ -12,7 +12,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOGIN_FROM_CDMM;
+  static const INITIAL = Routes.RSMS_COACH_MASTER;
 
   //static const INITIAL = Routes.checkUser;
   static const coachMaster = Routes.coachMaster;
@@ -21,7 +21,7 @@ class AppPages {
     GetPage(name: '/session-expired', page: () => SessionOutPage()),
 
     GetPage(
-      name: '/login-from-cdmm/:token',
+      name: '/rsms-coachmaster/:token',
       page: () => LoginFromCdmmView(token: Get.parameters['token'] ?? ''),
       binding: LoginFromCdmmBinding(),
     ),
@@ -35,9 +35,10 @@ class AppPages {
       name: '/coachMaster',
       page: () => MasterPage(child: Center(child: CoachMasterView())),
     ),
+
     GetPage(
       name: '/',
-      page: () => const Scaffold(body: Center(child: Text("Logged Out"))),
+      page: () => const Scaffold(body: Center(child: Text("Enter Token"))),
     ),
 
     GetPage(
@@ -49,5 +50,6 @@ class AppPages {
       name: '/coachMaster/coachDetails/viewOnly',
       page: () => MasterPage(child: Center(child: CoachDetailsPageViewOnly())),
     ),
+
   ];
 }

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../common_function/user_info.dart';
 import '../controller/menu_controller.dart';
-import '../utilities/app_fonts.dart';
-import '../utilities/comman_constants.dart';
 
 class MasterPage extends StatelessWidget {
   final Widget child;
