@@ -1,0 +1,70 @@
+name: coachmaster
+description: "coach master module"
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.8
+  http:
+  get:
+  intl:
+  google_fonts:
+  shared_preferences:
+  jwt_decoder:
+  file_picker:
+  pluto_grid:
+  pdf:
+  equatable:
+  flutter_easyloading:
+  syncfusion_flutter_xlsio:
+  logger:
+  hive:
+  wave:
+  flutter_secure_storage:
+  jose:
+  jwt_decode:
+  dart_jsonwebtoken:
+  hive_flutter:
+  cryptography_flutter:
+  dartz:
+  uuid: ^4.2.2
+  fl_chart: ^0.64.0
+  flutter_fancy_tree_view2: ^1.6.2
+  dropdown_search: ^5.0.6
+  multi_dropdown: ^3.0.1
+  auto_size_text: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^5.0.0
+
+
+flutter:
+
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/emu_logo.jpg
+    - assets/images/ir_logo.png
+    - assets/images/mc.png
+    - assets/images/tc.jpeg
+    - assets/images/cris-logo.png
+    - assets/images/app-logo.png
+    - assets/images/app-name.png
+
+
