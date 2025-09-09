@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       enableLog: true,
-      title: "MU Care",
+      title: "CoachMaster",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       routingCallback: (routing) {

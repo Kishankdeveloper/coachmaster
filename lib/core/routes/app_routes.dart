@@ -7,6 +7,7 @@ abstract class Routes {
   // static const userFeedback = _Paths.userFeedback;
   static const coachMaster = _Paths.coachMaster;
   static const coachDetails = _Paths.coachDetails;
+  static const coachPurification = _Paths.coachPurification;
 }
 
 abstract class _Paths {
@@ -16,4 +17,6 @@ abstract class _Paths {
   static const coachMaster = '/coachMaster';
 
   static const coachDetails = '/coachMaster/coachDetails';
+
+  static const coachPurification = '/coachpurification';
 }

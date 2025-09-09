@@ -15,6 +15,7 @@ class LoginFromCdmmController extends GetxController {
 
   var token = '';
   final count = 0.obs;
+  var origin = '';
   @override
   void onInit() {
     EasyLoading.show(status: 'Loading Dashboard...');
@@ -29,7 +30,7 @@ class LoginFromCdmmController extends GetxController {
       Token(access_token: token, refresh_token: token),
     );
     res.fold(
-      (failure) {
+          (failure) {
         EasyLoading.dismiss();
         Get.back();
         Get.snackbar(
@@ -37,9 +38,13 @@ class LoginFromCdmmController extends GetxController {
           "Please checked token, failed to Authenticate!",
         );
       },
-      (result) {
+          (result) {
         EasyLoading.dismiss();
-        Get.offAllNamed(Routes.coachMaster);
+        if (origin == Routes.coachPurification) {
+          Get.offAllNamed(Routes.coachPurification);
+        } else {
+          Get.offAllNamed(Routes.coachMaster);
+        }
       },
     );
   }

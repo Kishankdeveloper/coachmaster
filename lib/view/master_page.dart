@@ -96,7 +96,7 @@ class MasterPage extends StatelessWidget {
           ),
         ),
       ),*/
-      body: Expanded(child: child),
+      body:  child
     );
   }
 }

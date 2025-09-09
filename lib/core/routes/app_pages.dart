@@ -1,3 +1,4 @@
+import 'package:coachmaster/features/coach_purification/views/coach_purification_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../features/coach_master/views/coach_master_view_page.dart';
@@ -20,9 +21,25 @@ class AppPages {
   static final routes = [
     GetPage(name: '/session-expired', page: () => SessionOutPage()),
 
-    GetPage(
+   /* GetPage(
       name: '/rsms-coachmaster/:token',
       page: () => LoginFromCdmmView(token: Get.parameters['token'] ?? ''),
+      binding: LoginFromCdmmBinding(),
+    ),*/
+
+    GetPage(
+      name: '/rsms-coachmaster/:token',
+      page: () => LoginFromCdmmView(
+        token: Get.parameters['token'] ?? '',
+        origin: Routes.RSMS_COACH_MASTER,   // 👈 pass origin
+      ),
+      binding: LoginFromCdmmBinding(),
+    ),
+
+    GetPage(
+      name: '/cp-coachpurification/:token',
+      page: () => LoginFromCdmmView(token: Get.parameters['token'] ?? '',
+      origin: Routes.coachPurification,),
       binding: LoginFromCdmmBinding(),
     ),
 
@@ -34,6 +51,11 @@ class AppPages {
     GetPage(
       name: '/coachMaster',
       page: () => MasterPage(child: Center(child: CoachMasterView())),
+    ),
+
+    GetPage(
+      name: '/coachpurification',
+      page: () => MasterPage(child: Center(child: CoachPurificationView())),
     ),
 
     GetPage(

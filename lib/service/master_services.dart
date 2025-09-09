@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:coachmaster/features/coach_purification/models/coach_purification_model.dart';
 import 'package:get/get.dart';
 import '../features/coach_master/models/coach_details_by_depot.dart';
 import '../features/coach_master/models/coach_master_models.dart';
@@ -178,5 +179,25 @@ class MasterServices extends GetConnect {
     }
   }
 
+  Future<List<CoachPurificationModel>> fetchCoachPurificationList() async {
+    final response = await api.get('coachPurification/list');
+
+    if (response.statusCode == 401) {
+      Future.microtask(() {
+        if (Get.currentRoute != '/session-expired') {
+          Get.offAllNamed('/session-expired');
+        }
+      });
+      throw Exception("Session Expires");
+    }
+    if (response.statusCode == 200 && response.body is List) {
+      final List data = response.body as List;
+      return data.map((e) => CoachPurificationModel.fromJson(e)).toList();
+    } else if (response.statusCode == 404) {
+      return <CoachPurificationModel>[];
+    } else {
+      throw Exception("Failed to load Coach Data:");
+    }
+  }
 
 }
