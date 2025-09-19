@@ -138,7 +138,6 @@ class CoachDetailsPageViewOnly extends StatelessWidget {
                     //   ),
                     // ),
                     const SizedBox(height: 16),
-
                     // Image Grid or "No image uploaded"
                     Padding(
                       padding: const EdgeInsets.all(16.0),

@@ -31,7 +31,7 @@ Widget buildHeader(
               onPressed: Get.back,
               tooltip: "Back",
               color: Colors.blueGrey,
-            ),
+            ) ,
             const SizedBox(width: 4),
             Icon(iconData, color: Colors.blueGrey, size: 24),
             const SizedBox(width: 8),

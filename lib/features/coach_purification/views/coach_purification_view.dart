@@ -85,8 +85,9 @@ class CoachPurificationView extends StatelessWidget {
           DataColumn(label: textWidget("Approved Status")),
           DataColumn(label: textWidget("Approved By")),
           DataColumn(label: textWidget("Rejection Remark")),
+          DataColumn(label: textWidget("Coach Image")),
         ],
-        source: CoachDataSource(controller.filteredList.toList()),
+        source: CoachDataSource(controller.filteredList.toList(), controller),
         rowsPerPage: controller.filteredList.length < 10
             ? controller.filteredList.length
             : 10,
@@ -106,7 +107,8 @@ class CoachPurificationView extends StatelessWidget {
 
 class CoachDataSource extends DataTableSource {
   final List<CoachPurificationModel> data;
-  CoachDataSource(this.data);
+  final CoachPurificationController controller;
+  CoachDataSource(this.data, this.controller);
 
   @override
   DataRow? getRow(int index) {
@@ -126,6 +128,15 @@ class CoachDataSource extends DataTableSource {
         DataCell(Text(coach.approvedStatus ?? "")),
         DataCell(Text(coach.approvedBy ?? "")),
         DataCell(Text(coach.rejectionRemarks ?? "")),
+        DataCell(IconButton(
+          tooltip: 'Show Image',
+          onPressed: () async {
+            print('coach number is ----> ${coach.coachNo}');
+            // CALL IMAGE API here ...
+            await controller.fetchCoachImage(coach.coachId!);
+          },
+          icon: Icon(Icons.image),
+        )),
       ],
     );
   }

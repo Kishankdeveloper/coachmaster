@@ -25,6 +25,7 @@ class CoachCardGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(12, 12, 12, 4),
@@ -32,7 +33,7 @@ class CoachCardGrid extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Obx(() {
-                final categories = ["ALL", "MEMU", "DMU", "DEMU", "EMU"];
+                final categories = ["ALL", "MEMU", "DEMU", "EMU"];
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: categories.map((cat) {
@@ -66,29 +67,36 @@ class CoachCardGrid extends StatelessWidget {
                   }).toList(),
                 );
               }),
-              SizedBox(
-                width: 220,
-                child: TextField(
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 12,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 220,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 8,
+                          horizontal: 12,
+                        ),
+                        hintText: 'Search Coach No...',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        isDense: true,
+                        prefixIcon: Icon(Icons.search, size: 20),
+                      ),
+                      onChanged: (value) => controller.searchQuery.value = value.trim().toLowerCase(),
                     ),
-                    hintText: 'Search Coach No...',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    isDense: true,
-                    prefixIcon: Icon(Icons.search, size: 20),
                   ),
-                  onChanged: (value) =>
-                      controller.searchQuery.value = value.trim().toLowerCase(),
-                ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text("Note: For only for EMU, MEMU and DEMU", style: TextStyle(fontStyle: FontStyle.italic),),
+                ],
               ),
             ],
           ),
         ),
-
         Expanded(
           child: Obx(() {
             if (controller.isLoading.value) {
@@ -190,14 +198,8 @@ class CoachCardGrid extends StatelessWidget {
                                     children: [
                                       InfoRow("Owning Rly:", coach.owningRly),
                                       InfoRow("Coach Type:", coach.coachType),
-                                      InfoRow(
-                                        "Coach Category:",
-                                        coach.coachCategory,
-                                      ),
-                                      InfoRow(
-                                        "Power Generation Type:",
-                                        coach.powerGenerationType,
-                                      ),
+                                      InfoRow("Coach Category:", coach.coachCategory,),
+                                      InfoRow("Power Generation Type:", coach.powerGenerationType),
                                     ],
                                   ),
                                 ),

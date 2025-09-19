@@ -158,8 +158,7 @@ class MasterServices extends GetConnect {
     String? coachId,
   }) async {
     final response = await api.get(
-      'coachmaster/getCoachDetailsByCoachId/$coachId',
-    );
+      'coachmaster/getCoachDetailsByCoachId/$coachId');
 
     if (response.statusCode == 401) {
       Future.microtask(() {

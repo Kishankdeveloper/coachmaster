@@ -26,8 +26,7 @@ class MenuControllerX extends GetxController {
 
   Future<void> updateToken() async {
     final userAuthenticator = Get.find<UserAuthenticator>();
-    final Token fetchedToken = await userAuthenticator
-        .getValidTokenRefreshIfExpired();
+    final Token fetchedToken = await userAuthenticator.getValidTokenRefreshIfExpired();
     token.value = '${fetchedToken.access_token}';
   }
 }

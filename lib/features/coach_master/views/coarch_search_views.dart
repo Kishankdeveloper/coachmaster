@@ -29,23 +29,30 @@ class CoachSearchPopup extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               color: Colors.blueGrey.shade50,
               width: double.infinity,
-              child: Row(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.search, color: Colors.blueGrey),
-                  const SizedBox(width: 8),
-                  const Text(
-                    "Search Coach Master",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blueGrey,
-                    ),
+                  Row(
+                    children: [
+                      const Icon(Icons.search, color: Colors.blueGrey),
+                      const SizedBox(width: 8),
+                      const Text(
+                        "Search Coach Master",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blueGrey,
+                        ),
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        icon: const Icon(Icons.close),
+                        onPressed: () => Get.back(),
+                      ),
+                    ],
                   ),
-                  const Spacer(),
-                  IconButton(
-                    icon: const Icon(Icons.close),
-                    onPressed: () => Get.back(),
-                  ),
+                  Text("Note: For only for EMU, MEMU and DEMU", style: TextStyle(fontStyle: FontStyle.italic),),
                 ],
               ),
             ),
@@ -74,8 +81,7 @@ class CoachSearchPopup extends StatelessWidget {
                   ElevatedButton.icon(
                     icon: const Icon(Icons.search),
                     label: const Text("Search"),
-                    onPressed: () =>
-                        controller.searchCoach(searchController.text),
+                    onPressed: () => controller.searchCoach(searchController.text),
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 20,

@@ -169,9 +169,7 @@ class CoachMasterController extends GetxController {
   }
 
   Future<void> openAddEditCoachPopup({required EmuCoachMaster coach}) async {
-    Get.toNamed(
-      '/coachMaster/coachDetails',
-      arguments: {
+    Get.toNamed('/coachMaster/coachDetails', arguments: {
         "model": coach,
         "hiddenFields": [
           "coachId",
@@ -196,8 +194,7 @@ class CoachMasterController extends GetxController {
           "fileDataBase64ForEmuEndPannelImage",
           "fileDataBase64ForEmuBuiltPlateImage",
         ],
-      },
-    );
+      });
   }
 
   Future<void> openAddEditCoachDetailsPopup({
@@ -244,10 +241,8 @@ class CoachMasterController extends GetxController {
 
     fileDataBase64ForEmuFrontImage.value = coach.fileDataBase64ForEmuFrontImage;
     fileDataBase64ForEmuBackImage.value = coach.fileDataBase64ForEmuBackImage;
-    fileDataBase64ForEmuEndPannelImage.value =
-        coach.fileDataBase64ForEmuEndPannelImage;
-    fileDataBase64ForEmuBuiltPlateImage.value =
-        coach.fileDataBase64ForEmuBuiltPlateImage;
+    fileDataBase64ForEmuEndPannelImage.value = coach.fileDataBase64ForEmuEndPannelImage;
+    fileDataBase64ForEmuBuiltPlateImage.value = coach.fileDataBase64ForEmuBuiltPlateImage;
 
     coachId.value = coach.coachId;
     await Get.dialog(FeedbackFormPopup());

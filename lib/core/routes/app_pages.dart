@@ -31,7 +31,7 @@ class AppPages {
       name: '/rsms-coachmaster/:token',
       page: () => LoginFromCdmmView(
         token: Get.parameters['token'] ?? '',
-        origin: Routes.RSMS_COACH_MASTER,   // 👈 pass origin
+        origin: Routes.RSMS_COACH_MASTER,
       ),
       binding: LoginFromCdmmBinding(),
     ),

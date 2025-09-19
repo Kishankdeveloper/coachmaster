@@ -45,12 +45,24 @@ class CoachMasterView extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: ElevatedButton.icon(
                       icon: const Icon(Icons.search, color: Colors.white),
-                      label: const Text(
-                        "Search Coach Master",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      label: Column(
+                        children: [
+                          const Text(
+                            "Search Coach Master",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const Text(
+                            "( Entire CMM )",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ],
                       ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurple,
@@ -413,7 +425,7 @@ class _FeedbackFormPopupState extends State<FeedbackFormPopup> {
                               onChanged: (v) =>
                                   setState(() => coachCategory.value = v),
                               hintText: "Select",
-                              items: ["MEMU", "DMU", "EMU", "DEMU"]
+                              items: ["MEMU", "EMU", "DEMU"]
                                   .map(
                                     (e) => DropdownMenuItem(
                                       value: e,
